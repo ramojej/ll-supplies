@@ -1,11 +1,15 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import tw, { styled } from "twin.macro"
+
+const HeaderRight = styled.div`
+  ${tw`flex bg-red-500`}
+`
 
 const Header = ({ siteTitle }) => (
-  <header
+  <HeaderRight
     style={{
-      background: `rebeccapurple`,
       marginBottom: `1.45rem`,
     }}
   >
@@ -28,7 +32,7 @@ const Header = ({ siteTitle }) => (
         </Link>
       </h1>
     </div>
-  </header>
+  </HeaderRight>
 )
 
 Header.propTypes = {
