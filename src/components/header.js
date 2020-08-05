@@ -1,6 +1,7 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import Menu from "./Menu"
 import tw, { styled } from "twin.macro"
 
 const HeaderRight = styled.div`
@@ -31,6 +32,7 @@ const Header = ({ siteTitle }) => (
           {siteTitle}
         </Link>
       </h1>
+      <Menu />
     </div>
   </HeaderRight>
 )
