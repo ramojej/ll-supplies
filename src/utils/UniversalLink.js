@@ -1,5 +1,13 @@
 import { Link as GatsbyLink } from "gatsby"
 import React from "react"
+import { styled } from "twin.macro"
+
+export const StyledLink = styled(GatsbyLink)`
+  &.active {
+    color: red;
+    text-decoration: underline;
+  }
+`
 
 // Since DOM elements <a> cannot receive activeClassName
 // and partiallyActive, destructure the prop here and
@@ -18,14 +26,14 @@ const UniversalLink = ({
   // Use Gatsby Link for internal links, and <a> for others
   if (internal) {
     return (
-      <GatsbyLink
+      <StyledLink
         to={to}
         activeClassName={activeClassName}
         partiallyActive={partiallyActive}
         {...other}
       >
         {children}
-      </GatsbyLink>
+      </StyledLink>
     )
   }
   return (

@@ -6,24 +6,36 @@ import { FiChevronDown } from "react-icons/fi"
 import tw, { styled } from "twin.macro"
 
 const Nav = styled.nav`
-  ul {
-    ${tw`list-none`};
-    padding-inline-start: 0;
+  ${tw`hidden`};
+
+  @media ${props => props.theme.screens.lg} {
+    ${tw`block`}
+
+    ul {
+      ${tw`list-none flex`};
+      padding-inline-start: 0;
+    }
   }
 `
 const MainLI = styled.li`
+  ${tw`relative`};
+
+  &:not(:last-child) {
+    ${tw`mr-8`}
+  }
+
   ul {
-    ${tw`hidden`}
+    ${tw`hidden absolute`}
   }
 
   &:hover {
     ul {
-      display: block;
+      ${tw`block bg-gray-700`}
     }
   }
 
   a {
-    ${tw`no-underline`}
+    ${tw`no-underline text-white uppercase`}
   }
 `
 
@@ -58,7 +70,10 @@ const Menu = () => {
     <Nav>
       <ul>
         {headerMenu.map(menuItem => {
-          const path = menuItem.connectedNode?.uri ?? menuItem.url
+          const path =
+            menuItem.connectedNode !== null
+              ? menuItem.connectedNode.node.uri
+              : menuItem.url
 
           //console.log(menuItem)
           return (
@@ -66,7 +81,9 @@ const Menu = () => {
               key={menuItem.key}
               className={menuItem.children.length > 0 ? "has-submenu" : "menu"}
             >
-              <UniversalLink to={path}>{menuItem.title} </UniversalLink>
+              <UniversalLink to={path} activeClassName="active">
+                {menuItem.title}{" "}
+              </UniversalLink>
               {menuItem.children.length > 0 && <FiChevronDown />}
 
               {menuItem.children.length > 0 && (

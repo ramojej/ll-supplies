@@ -13,4 +13,7 @@ export default {
     lg: "only screen and (min-width: 1024px)",
     xl: "only screen and (min-width: 1280px)",
   },
+  theme: {
+    text: "#fff",
+  },
 }
