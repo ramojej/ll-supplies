@@ -1,12 +1,26 @@
 import { Link as GatsbyLink } from "gatsby"
 import React from "react"
-import { styled } from "twin.macro"
+import tw, { styled } from "twin.macro"
 
 export const StyledLink = styled(GatsbyLink)`
+  ${tw`flex items-center`};
+
   &.active {
     color: red;
     text-decoration: underline;
   }
+
+  &.active + svg {
+    stroke: red;
+  }
+
+  @media ${props => props.theme.screens.lg} {
+    ${tw`block`}
+  }
+`
+
+const StyledA = styled.a`
+  ${tw`flex items-center`};
 `
 
 // Since DOM elements <a> cannot receive activeClassName
@@ -37,9 +51,9 @@ const UniversalLink = ({
     )
   }
   return (
-    <a href={to} {...other}>
+    <StyledA href={to} {...other}>
       {children}
-    </a>
+    </StyledA>
   )
 }
 export default UniversalLink

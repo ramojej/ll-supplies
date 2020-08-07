@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Hero from "../components/Home/Hero/Hero"
+import WhatWeDo from "../components/Home/WhatWeDo/WhatWeDo"
 import Layout from "../components/layout"
 
 const HomePage = ({
@@ -11,7 +12,7 @@ const HomePage = ({
   return (
     <Layout uri={uri}>
       <Hero id={id} blocks={blocks} />
-      <h1>This is home</h1>
+      <WhatWeDo blocks={blocks} />
     </Layout>
   )
 }
@@ -33,12 +34,19 @@ export const query = graphql`
             heroImage {
               localFile {
                 childImageSharp {
-                  fluid {
-                    src
+                  fluid(quality: 90, maxWidth: 1920) {
+                    ...GatsbyImageSharpFluid_withWebp
                   }
                 }
               }
             }
+          }
+        }
+        ... on WpAcfWhatwedoBlock {
+          originalContent
+          blockWhatWeDoFields {
+            title
+            whatWeDo
           }
         }
       }

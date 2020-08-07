@@ -9,10 +9,14 @@ import MobileMenu from "./MobileMenu/MobileMenu"
 import tw, { styled } from "twin.macro"
 
 const OuterHeaderContainer = styled.div`
-  ${tw`bg-red-500`};
+  ${tw`z-20 top-0 w-full pt-4`};
+
   position: ${props => (props.uri === "/" ? "absolute" : "static")};
-  width: 100%;
-  top: 0;
+  background: ${props => (props.uri === "/" ? "transparent" : "grey")};
+
+  @media ${props => props.theme.screens.lg} {
+    padding-top: ${props => (props.uri === "/" ? "2rem" : "1rem")};
+  }
 `
 const InnerHeaderContainer = styled.div`
   ${tw`flex items-center`}

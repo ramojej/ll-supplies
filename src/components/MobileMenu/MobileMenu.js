@@ -19,7 +19,7 @@ const MobileMenuContainer = styled(motion.div)`
     right: 8px;
     top: 10px;
 
-    fill: ${props => props.theme.text};
+    fill: #fff;
   }
 
   ul {
@@ -30,8 +30,9 @@ const MobileMenuContainer = styled(motion.div)`
     }
 
     a {
-      ${tw`no-underline`};
+      ${tw`no-underline uppercase`};
       color: #fff;
+      font-family: ${props => props.theme.fonts.main};
     }
 
     li {
@@ -108,10 +109,16 @@ const MobileMenu = ({ toggleMobileMenu, isOpen }) => {
         >
           <ul>
             {headerMenu.map(menuItem => {
+              const path =
+                menuItem.connectedNode !== null
+                  ? menuItem.connectedNode.node.uri
+                  : menuItem.url
               return (
                 <motion.li variants={liVariants} key={menuItem.key}>
-                  <UniversalLink>{menuItem.title}</UniversalLink>
-                  {menuItem.children.length > 0 && <FiChevronDown />}
+                  <UniversalLink activeClassName="active" to={path}>
+                    {menuItem.title}{" "}
+                    {menuItem.children.length > 0 && <FiChevronDown />}
+                  </UniversalLink>
 
                   {menuItem.children.length > 0 && (
                     <ul className="submenu">

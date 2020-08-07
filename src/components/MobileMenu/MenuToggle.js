@@ -10,7 +10,7 @@ export const MenuToggleContainer = styled.div`
 
   button {
     ${tw`focus:outline-none border-none flex rounded-lg p-2`};
-    background: ${props => props.theme.lighterGray};
+    background: #fff;
 
     g {
       fill: ${props => props.theme.text};

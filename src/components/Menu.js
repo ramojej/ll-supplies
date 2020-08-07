@@ -18,7 +18,7 @@ const Nav = styled.nav`
   }
 `
 const MainLI = styled.li`
-  ${tw`relative`};
+  ${tw`relative flex items-center`};
 
   &:not(:last-child) {
     ${tw`mr-8`}
@@ -30,12 +30,19 @@ const MainLI = styled.li`
 
   &:hover {
     ul {
-      ${tw`block bg-gray-700`}
+      ${tw`block bg-gray-700 p-4`};
+      top: 20px;
     }
   }
 
+  svg {
+    stroke: #fff;
+    margin-left: 3px;
+  }
+
   a {
-    ${tw`no-underline text-white uppercase`}
+    ${tw`no-underline text-white uppercase`};
+    font-family: ${props => props.theme.fonts.main};
   }
 `
 

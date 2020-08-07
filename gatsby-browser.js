@@ -1,18 +1,17 @@
 import React from "react"
-//import "typeface-lato"
+import "typeface-montserrat"
+import "typeface-open-sans"
 import { createGlobalStyle, ThemeProvider } from "styled-components"
 import Theme from "./src/theme/theme"
+import "./src/css/style.css"
 
 const GlobalStyles = createGlobalStyle`
   body {
-    background: ${({ theme }) => theme.body};
-    color: ${({ theme }) => theme.text};
-    height: 100vh;
     margin: 0;
     padding: 0;
     font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     transition: all 0.25s linear;
-    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
   }
   * {
     box-sizing: border-box

@@ -3,7 +3,8 @@ import PropTypes from "prop-types"
 import tw, { styled } from "twin.macro"
 
 const StyledContainer = styled.div`
-  ${tw`max-w-5xl mx-auto px-4 relative`};
+  ${tw`mx-auto px-4 relative`};
+  max-width: 74rem;
 `
 
 const Container = ({ children, mobileContainer }) => {
