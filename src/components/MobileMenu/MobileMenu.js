@@ -31,7 +31,6 @@ const MobileMenuContainer = styled(motion.div)`
 
     a {
       ${tw`no-underline uppercase`};
-      color: #fff;
       font-family: ${props => props.theme.fonts.main};
     }
 
@@ -132,6 +131,7 @@ const MobileMenu = ({ toggleMobileMenu, isOpen }) => {
                                   ? subItem.connectedNode.node.uri
                                   : subItem.url
                               }
+                              activeClassName="active"
                             >
                               {subItem.title}
                             </UniversalLink>

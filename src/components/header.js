@@ -9,13 +9,14 @@ import MobileMenu from "./MobileMenu/MobileMenu"
 import tw, { styled } from "twin.macro"
 
 const OuterHeaderContainer = styled.div`
-  ${tw`z-20 top-0 w-full pt-4`};
+  ${tw`z-20 top-0 w-full py-4`};
 
   position: ${props => (props.uri === "/" ? "absolute" : "static")};
-  background: ${props => (props.uri === "/" ? "transparent" : "grey")};
+  background: ${props =>
+    props.uri === "/" ? "transparent" : props.theme.colors.black};
 
   @media ${props => props.theme.screens.lg} {
-    padding-top: ${props => (props.uri === "/" ? "2rem" : "1rem")};
+    padding: 2rem 0;
   }
 `
 const InnerHeaderContainer = styled.div`
@@ -46,7 +47,7 @@ const Header = ({ uri }) => {
           </Link>
 
           <HeaderRight>
-            <Menu />
+            <Menu uri={uri} />
             <MenuToggleContainer>
               <MenuToggle toggleMobileMenu={toggleMobileMenu} />
             </MenuToggleContainer>

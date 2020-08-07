@@ -3,24 +3,51 @@ import React from "react"
 import tw, { styled } from "twin.macro"
 
 export const StyledLink = styled(GatsbyLink)`
-  ${tw`flex items-center`};
+  ${tw`flex items-center font-semibold`};
+
+  color: ${props => props.theme.colors.lightGray};
 
   &.active {
-    color: red;
-    text-decoration: underline;
+    color: #fff;
   }
 
   &.active + svg {
-    stroke: red;
+    stroke: #fff;
   }
 
   @media ${props => props.theme.screens.lg} {
-    ${tw`block`}
+    ${tw`block`};
+
+    color: ${props =>
+      props.uri === "/" ? "#fff" : props.theme.colors.lightGray};
+
+    &.active {
+      color: ${props => (props.uri === "/" ? props.theme.colors.red : "#fff")};
+    }
+
+    &.active:after {
+      display: ${props => (props.uri === "/" ? "block" : "none")};
+      content: "";
+      height: 2px;
+      width: 100%;
+      background: ${props => props.theme.colors.red};
+      position: absolute;
+      bottom: -5px;
+    }
+
+    &:hover {
+      color: rgba(255, 255, 255, 0.8);
+    }
   }
 `
-
+//if not a gatsby link we style this with StyledA
 const StyledA = styled.a`
-  ${tw`flex items-center`};
+  ${tw`flex items-center font-semibold`};
+  color: ${props =>
+    props.uri === "/" ? "#fff" : props.theme.colors.lightGray};
+  &:hover {
+    color: rgba(255, 255, 255, 0.8);
+  }
 `
 
 // Since DOM elements <a> cannot receive activeClassName
@@ -31,6 +58,7 @@ const UniversalLink = ({
   to,
   activeClassName,
   partiallyActive,
+  uri,
   ...other
 }) => {
   // Tailor the following test to your environment.
@@ -44,6 +72,7 @@ const UniversalLink = ({
         to={to}
         activeClassName={activeClassName}
         partiallyActive={partiallyActive}
+        uri={uri}
         {...other}
       >
         {children}
@@ -51,7 +80,7 @@ const UniversalLink = ({
     )
   }
   return (
-    <StyledA href={to} {...other}>
+    <StyledA href={to} {...other} uri={uri}>
       {children}
     </StyledA>
   )

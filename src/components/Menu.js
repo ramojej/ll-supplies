@@ -24,8 +24,28 @@ const MainLI = styled.li`
     ${tw`mr-8`}
   }
 
-  ul {
-    ${tw`hidden absolute`}
+  svg {
+    stroke: ${props =>
+      props.uri === "/" ? "#fff" : props.theme.colors.lightGray};
+    margin-left: 3px;
+  }
+
+  a {
+    ${tw`no-underline uppercase focus:shadow-outline focus:outline-none active:shadow-none`};
+    font-family: ${props => props.theme.fonts.main};
+  }
+
+  & ul {
+    ${tw`hidden absolute`};
+
+    & a,
+    & a:active {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    a:hover {
+      color: #fff;
+    }
   }
 
   &:hover {
@@ -33,20 +53,14 @@ const MainLI = styled.li`
       ${tw`block bg-gray-700 p-4`};
       top: 20px;
     }
-  }
 
-  svg {
-    stroke: #fff;
-    margin-left: 3px;
-  }
-
-  a {
-    ${tw`no-underline text-white uppercase`};
-    font-family: ${props => props.theme.fonts.main};
+    svg {
+      stroke: #fff;
+    }
   }
 `
 
-const Menu = () => {
+const Menu = ({ uri }) => {
   const { wpMenu } = useStaticQuery(graphql`
     {
       wpMenu(slug: { eq: "gatsby-primary-menu" }) {
@@ -87,8 +101,9 @@ const Menu = () => {
             <MainLI
               key={menuItem.key}
               className={menuItem.children.length > 0 ? "has-submenu" : "menu"}
+              uri={uri}
             >
-              <UniversalLink to={path} activeClassName="active">
+              <UniversalLink to={path} activeClassName="active" uri={uri}>
                 {menuItem.title}{" "}
               </UniversalLink>
               {menuItem.children.length > 0 && <FiChevronDown />}
@@ -105,6 +120,7 @@ const Menu = () => {
                               ? subItem.connectedNode.node.uri
                               : subItem.url
                           }
+                          activeClassName="active"
                         >
                           {subItem.title}
                         </UniversalLink>
