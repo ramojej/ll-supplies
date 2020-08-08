@@ -44,7 +44,10 @@ const StyledBackgroundImage = styled(BackgroundImage)`
   }
 
   p {
-    ${tw`text-white max-w-sm text-center mt-2 text-sm`};
+    ${tw`text-white max-w-xs text-center mt-2 text-sm`};
+    @media ${props => props.theme.screens.lg} {
+      ${tw`max-w-sm`}
+    }
   }
 `
 //declare vars for framer motion variants
