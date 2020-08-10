@@ -14,7 +14,12 @@ const Logo = () => {
       }
     }
   `)
-  return <Img fluid={data.placeholderImage.childImageSharp.fluid} />
+  return (
+    <Img
+      fluid={data.placeholderImage.childImageSharp.fluid}
+      alt="L&amp;L Supplies logo"
+    />
+  )
 }
 
 export default Logo

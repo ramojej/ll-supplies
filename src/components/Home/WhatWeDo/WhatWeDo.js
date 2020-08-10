@@ -1,28 +1,14 @@
 import React, { useEffect } from "react"
 import PropTypes from "prop-types"
-import Container from "../../Container"
-import { TitleWithUnderLine } from "../../Title"
+//import Container from "../../Container"
+import { OuterContainer, P, Container } from "../../styles/Styles"
+import { TitleWithUnderLine } from "../../styles/Title"
 import Logo from "../../Logo"
 import tw, { styled } from "twin.macro"
 import { motion, useAnimation } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 
-const WhatWeDoContainer = styled.div`
-  ${tw`py-8`};
-  background: ${props => props.theme.colors.black};
-
-  @media ${props => props.theme.screens.lg} {
-    ${tw`py-12`}
-  }
-`
-
-const P = styled.p`
-  ${tw`text-sm text-white`}
-`
-
 const WhatWeDoGrid = styled.div`
-  ${tw`text-white`};
-
   @media ${props => props.theme.screens.lg} {
     ${tw`grid grid-cols-3 items-center gap-16`}
   }
@@ -65,7 +51,7 @@ const WhatWeDo = ({ blocks }) => {
   )
   //console.log(blockWhatWeDoFields)
   return (
-    <WhatWeDoContainer>
+    <OuterContainer background="#121212">
       <Container>
         <WhatWeDoGrid>
           <WhatWeDoContentContainer
@@ -84,7 +70,7 @@ const WhatWeDo = ({ blocks }) => {
             <TitleWithUnderLine color="#fff">
               {blockWhatWeDoFields.title}
             </TitleWithUnderLine>
-            <P>{blockWhatWeDoFields.whatWeDo}</P>
+            <P color="#fff">{blockWhatWeDoFields.whatWeDo}</P>
           </WhatWeDoContentContainer>
           <LogoContainer
             ref={whatWeDoRef}
@@ -107,7 +93,7 @@ const WhatWeDo = ({ blocks }) => {
           </LogoContainer>
         </WhatWeDoGrid>
       </Container>
-    </WhatWeDoContainer>
+    </OuterContainer>
   )
 }
 

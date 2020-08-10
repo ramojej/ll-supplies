@@ -87,7 +87,7 @@ const Hero = ({ blocks }) => {
             ? blockHeroFields.heroImage.localFile.childImageSharp.fluid
             : imageSharp.fluid
         }
-        className="h-full"
+        alt="L&amp;L Supplies Hero Image"
       >
         <motion.div variants={container} initial="hidden" animate="show">
           <motion.h1 variants={item}>{blockHeroFields.slogan}</motion.h1>
