@@ -4,6 +4,7 @@ import Hero from "../components/Home/Hero/Hero"
 import WhatWeDo from "../components/Home/WhatWeDo/WhatWeDo"
 import Quality from "../components/Home/Quality/Quality"
 import Portfolio from "../components/Home/Portfolio/Portfolio"
+import Accreditations from "../components/Home/Accred/Accreditations"
 import Layout from "../components/layout"
 
 const HomePage = ({
@@ -17,6 +18,7 @@ const HomePage = ({
       <WhatWeDo blocks={blocks} />
       <Quality blocks={blocks} />
       <Portfolio />
+      <Accreditations blocks={blocks} />
     </Layout>
   )
 }
@@ -61,6 +63,23 @@ export const query = graphql`
                 childImageSharp {
                   fluid(quality: 90, maxWidth: 1920) {
                     ...GatsbyImageSharpFluid_withWebp
+                  }
+                }
+              }
+            }
+          }
+        }
+        ... on WpAcfAccreditationsBlock {
+          blockAccredFields {
+            title
+            logos {
+              logo {
+                altText
+                localFile {
+                  childImageSharp {
+                    fluid(maxWidth: 120) {
+                      ...GatsbyImageSharpFluid_withWebp
+                    }
                   }
                 }
               }

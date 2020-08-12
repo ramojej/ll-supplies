@@ -60,7 +60,7 @@ const Quality = ({ blocks }) => {
             </TitleWithUnderLine>
             <div
               dangerouslySetInnerHTML={{ __html: blockQualityFields.content }}
-              style={{ color: "#818181" }}
+              style={{ color: "#666" }}
             />
           </QualityContent>
         </StyledQualityContainer>
