@@ -12,7 +12,7 @@ const StyledQualityContainer = styled(Container)`
 `
 
 const QualityContent = styled.div`
-  ${tw`relative z-10`};
+  ${tw`relative z-10 text-sm`};
 
   & p:not(:last-child) {
     ${tw`mb-6`}

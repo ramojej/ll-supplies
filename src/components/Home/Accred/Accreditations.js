@@ -1,5 +1,5 @@
 import React from "react"
-import { OuterContainer, Container, BoxedTitle } from "../../styles/Styles"
+import { OuterContainer, BoxedTitle } from "../../styles/Styles"
 import GatsbyImage from "gatsby-image"
 import tw, { styled } from "twin.macro"
 
@@ -44,7 +44,7 @@ const Accreditations = ({ blocks }) => {
   const { blockAccredFields } = blocks.find(
     accreds => accreds.blockAccredFields
   )
-  console.log(blockAccredFields.logos)
+  //console.log(blockAccredFields.logos)
   return (
     <StyledOuterContainer>
       <FlexContainer>

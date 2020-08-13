@@ -33,5 +33,5 @@ export const BoxedTitle = styled.div`
 
 export const P = styled.p`
   color: ${props => (props.color ? props.color : "inherit")};
-  size: ${props => (props.size ? props.size : tw`text-sm`)};
+  font-size: ${props => (props.size ? props.size : "0.875rem")};
 `

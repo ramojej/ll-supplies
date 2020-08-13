@@ -5,6 +5,7 @@ import WhatWeDo from "../components/Home/WhatWeDo/WhatWeDo"
 import Quality from "../components/Home/Quality/Quality"
 import Portfolio from "../components/Home/Portfolio/Portfolio"
 import Accreditations from "../components/Home/Accred/Accreditations"
+import Services from "../components/Home/Services/Services"
 import Layout from "../components/layout"
 
 const HomePage = ({
@@ -19,6 +20,7 @@ const HomePage = ({
       <Quality blocks={blocks} />
       <Portfolio />
       <Accreditations blocks={blocks} />
+      <Services blocks={blocks} />
     </Layout>
   )
 }
@@ -82,6 +84,26 @@ export const query = graphql`
                     }
                   }
                 }
+              }
+            }
+          }
+        }
+        ... on WpAcfServicesBlock {
+          blockServicesFields {
+            content
+            title
+            services {
+              service
+              serviceContent
+              serviceIcon {
+                localFile {
+                  childImageSharp {
+                    fluid(maxWidth: 57) {
+                      ...GatsbyImageSharpFluid_withWebp
+                    }
+                  }
+                }
+                altText
               }
             }
           }

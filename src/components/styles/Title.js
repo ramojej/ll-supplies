@@ -3,6 +3,7 @@ import tw, { styled } from "twin.macro"
 export const TitleWithUnderLine = styled.h2`
   ${tw`uppercase text-xl font-semibold`};
   color: ${props => (props.color ? props.color : "#fff")};
+  text-align: ${props => (props.position === "center" ? "center" : "left")};
 
   &:after {
     content: "";
