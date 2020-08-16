@@ -45,7 +45,7 @@ const StyledImage = styled(GatsbyImage)`
 `
 
 const EachService = ({ service }) => {
-  console.log(service)
+  //console.log(service)
   return (
     <EachServiceContainer>
       <ImageContainer>

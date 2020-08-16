@@ -38,7 +38,7 @@ const Header = ({ uri }) => {
     toggleOpen(!isOpen)
   }
   return (
-    <OuterHeaderContainer uri={uri}>
+    <OuterHeaderContainer uri={uri} id="header">
       <Container>
         <InnerHeaderContainer>
           <Link to="/">

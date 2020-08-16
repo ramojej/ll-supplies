@@ -10,6 +10,7 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import tw, { styled } from "twin.macro"
 import Header from "./header"
+import Footer from "./Footer"
 
 const StyledLayout = styled.div`
   ${tw`flex flex-col`};
@@ -34,11 +35,7 @@ const Layout = ({ children, uri }) => {
       <Header siteTitle={data.site.siteMetadata.title} uri={uri} />
 
       {children}
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </footer>
+      <Footer />
     </StyledLayout>
   )
 }

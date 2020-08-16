@@ -57,7 +57,7 @@ const Accreditations = ({ blocks }) => {
               <StyledImageContainer key={index}>
                 <GatsbyImage
                   fluid={item.logo.localFile.childImageSharp.fluid}
-                  alt={item.altText}
+                  alt={item.logo.altText}
                 />
               </StyledImageContainer>
             )

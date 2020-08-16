@@ -6,6 +6,7 @@ import Quality from "../components/Home/Quality/Quality"
 import Portfolio from "../components/Home/Portfolio/Portfolio"
 import Accreditations from "../components/Home/Accred/Accreditations"
 import Services from "../components/Home/Services/Services"
+import Testimonials from "../components/Home/Testimonials/Testimonials"
 import Layout from "../components/layout"
 
 const HomePage = ({
@@ -21,6 +22,7 @@ const HomePage = ({
       <Portfolio />
       <Accreditations blocks={blocks} />
       <Services blocks={blocks} />
+      <Testimonials blocks={blocks} />
     </Layout>
   )
 }
@@ -105,6 +107,16 @@ export const query = graphql`
                 }
                 altText
               }
+            }
+          }
+        }
+        ... on WpAcfTestimonialsBlock {
+          blockTestimonialFields {
+            title
+            testimonials {
+              message
+              name
+              titleJob
             }
           }
         }
