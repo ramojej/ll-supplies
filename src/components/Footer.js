@@ -51,7 +51,7 @@ const Footer = () => {
       siteGeneralSettings: { customSiteSettingFields },
     },
   } = useStaticQuery(query)
-  console.log(customSiteSettingFields)
+  //console.log(customSiteSettingFields)
   return (
     <footer>
       <UpperFooter>

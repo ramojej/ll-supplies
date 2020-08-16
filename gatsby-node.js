@@ -5,39 +5,25 @@ const query = `
     allWpPage {
       nodes {
         uri
-        title
-        seo {
-          focuskw
-          metaDesc
-          opengraphTitle
-          opengraphType
-          title
-          opengraphUrl
-        }
         template {
           ... on WpHomeTemplateTemplate {
             templateName
           }
         }
         isFrontPage
-        content
         id
       }
     }
     allWpPost {
       nodes {
         uri
-        title
-        seo {
-          focuskw
-          metaDesc
-          opengraphTitle
-          opengraphType
-          title
-          opengraphUrl
-        }
-        content
         id
+      }
+    }
+    allWpProject {
+      nodes {
+        id
+        uri
       }
     }
   }
@@ -79,6 +65,16 @@ exports.createPages = async ({ actions, graphql }) => {
         id: post.id,
         slug: post.uri,
         title: post.title,
+      },
+    })
+  })
+
+  data.allWpProject.nodes.forEach(project => {
+    actions.createPage({
+      path: `/projects${project.uri}`,
+      component: path.resolve(`./src/templates/SingleProject.js`),
+      context: {
+        id: project.id,
       },
     })
   })
