@@ -4,6 +4,7 @@ import UniversalLink from "../utils/UniversalLink"
 import { flatListToHierarchical } from "../utils/flastListToHeirarchical"
 import { FiChevronDown } from "react-icons/fi"
 import tw, { styled } from "twin.macro"
+import he from "he"
 
 const Nav = styled.nav`
   ${tw`hidden`};
@@ -31,7 +32,7 @@ const MainLI = styled.li`
   }
 
   a {
-    ${tw`no-underline uppercase focus:shadow-outline focus:outline-none active:shadow-none`};
+    ${tw`no-underline uppercase focus:shadow-outline focus:outline-none active:shadow-none text-sm`};
     font-family: ${props => props.theme.fonts.main};
   }
 
@@ -52,6 +53,7 @@ const MainLI = styled.li`
     ul {
       ${tw`block bg-gray-700 p-4`};
       top: 20px;
+      min-width: 150px;
     }
 
     svg {
@@ -104,7 +106,7 @@ const Menu = ({ uri }) => {
               uri={uri}
             >
               <UniversalLink to={path} activeClassName="active" uri={uri}>
-                {menuItem.title}{" "}
+                {he.decode(menuItem.title)}{" "}
               </UniversalLink>
               {menuItem.children.length > 0 && <FiChevronDown />}
 
@@ -122,7 +124,7 @@ const Menu = ({ uri }) => {
                           }
                           activeClassName="active"
                         >
-                          {subItem.title}
+                          {he.decode(subItem.title)}
                         </UniversalLink>
                       </li>
                     )

@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
+import { OuterContainer, Container } from "../components/styles/Styles"
 
 const page = ({
   data: {
@@ -9,9 +10,12 @@ const page = ({
 }) => {
   return (
     <Layout uri={uri}>
-      <h1 dangerouslySetInnerHTML={{ __html: title }} />
-      <div dangerouslySetInnerHTML={{ __html: content }} />
-      <p>{id}</p>
+      <OuterContainer>
+        <Container>
+          <h1 dangerouslySetInnerHTML={{ __html: title }} />
+          <div dangerouslySetInnerHTML={{ __html: content }} />
+        </Container>
+      </OuterContainer>
     </Layout>
   )
 }

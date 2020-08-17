@@ -5,6 +5,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import UniversalLink from "../../utils/UniversalLink"
 import { flatListToHierarchical } from "../../utils/flastListToHeirarchical"
 import { FiChevronDown } from "react-icons/fi"
+import he from "he"
 
 const MobileMenuContainer = styled(motion.div)`
   ${tw`absolute top-0 left-0 w-full z-20 p-5 rounded-md`};
@@ -115,7 +116,7 @@ const MobileMenu = ({ toggleMobileMenu, isOpen }) => {
               return (
                 <motion.li variants={liVariants} key={menuItem.key}>
                   <UniversalLink activeClassName="active" to={path}>
-                    {menuItem.title}{" "}
+                    {he.decode(menuItem.title)}{" "}
                     {menuItem.children.length > 0 && <FiChevronDown />}
                   </UniversalLink>
 
@@ -133,7 +134,7 @@ const MobileMenu = ({ toggleMobileMenu, isOpen }) => {
                               }
                               activeClassName="active"
                             >
-                              {subItem.title}
+                              {he.decode(subItem.title)}
                             </UniversalLink>
                           </motion.li>
                         )

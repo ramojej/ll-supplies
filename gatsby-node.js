@@ -9,6 +9,9 @@ const query = `
           ... on WpHomeTemplateTemplate {
             templateName
           }
+          ... on WpAboutUsTemplateTemplate {
+            templateName
+          }
         }
         isFrontPage
         id
@@ -41,12 +44,25 @@ exports.createPages = async ({ actions, graphql }) => {
     const { isFrontPage } = page
     const uri = isFrontPage ? `/` : page.uri
 
+    let template
+
+    switch (page.template.templateName) {
+      case "Home Template":
+        template = path.resolve("./src/templates/Home.js")
+        break
+
+      case "About Us Template":
+        template = path.resolve("./src/templates/About.js")
+        break
+
+      default:
+        template = path.resolve(`./src/templates/basicpage.js`)
+        break
+    }
+
     actions.createPage({
       path: uri,
-      component:
-        isFrontPage && page.template.templateName == "Home Template"
-          ? path.resolve(`./src/templates/Home.js`)
-          : path.resolve(`./src/templates/basicpage.js`),
+      component: template,
       context: {
         ...page,
         id: page.id,
