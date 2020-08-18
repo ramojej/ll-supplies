@@ -4,6 +4,7 @@ import Layout from "../components/layout"
 import { BoxedTitle } from "../components/styles/Styles"
 import { TitleWithUnderLine } from "../components/styles/Title"
 import BackgroundImage from "gatsby-background-image"
+import OrangeFooter from "../components/OrangeFooter"
 import tw, { styled } from "twin.macro"
 
 const ServicesPageContainer = styled.div`
@@ -111,6 +112,7 @@ const Services = ({ data: { wpPage } }) => {
           </BannerContentContainer>
         ))}
       </ServicesPageContainer>
+      <OrangeFooter />
     </Layout>
   )
 }

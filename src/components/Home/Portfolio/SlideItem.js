@@ -34,12 +34,13 @@ const Subtitle = styled.h4`
   color: rgba(255, 255, 255, 0.8);
 `
 
-const StyledButton = styled(Link)`
-  ${tw`uppercase text-white text-sm relative`};
+export const StyledButton = styled(Link)`
+  ${tw`uppercase text-white text-sm relative flex items-center justify-center`};
   background: ${props => props.theme.colors.black};
   border-top: 2px solid transparent;
   border-bottom: 2px solid transparent;
   padding: 8px 10px;
+  min-height: 41px;
   transition: all 0.2s ease;
 
   &:active {
