@@ -100,7 +100,7 @@ const About = ({ data: { wpPage } }) => {
     mission => mission.blockMissionFields
   )
 
-  console.log(blockMissionFields)
+  //console.log(blockMissionFields)
   return (
     <Layout>
       <AboutContainer>

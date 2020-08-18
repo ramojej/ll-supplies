@@ -121,7 +121,9 @@ const SingleProject = ({ data: { wpProject } }) => {
               </EachDetail>
               <EachDetail>
                 <BsFillPersonFill /> <span>Posted by:</span>
-                {wpProject.lastEditedBy.node.name}
+                {wpProject.author !== null
+                  ? wpProject.author.node.name
+                  : wpProject.lastEditedBy.node.name}
               </EachDetail>
             </DetailsContainer>
           </ContentDetailsContainer>
@@ -159,6 +161,11 @@ export const query = graphql`
       title
       content
       lastEditedBy {
+        node {
+          name
+        }
+      }
+      author {
         node {
           name
         }

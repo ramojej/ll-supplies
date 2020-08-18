@@ -12,6 +12,9 @@ const query = `
           ... on WpAboutUsTemplateTemplate {
             templateName
           }
+          ... on WpServicesTemplateTemplate {
+            templateName
+          }
         }
         isFrontPage
         id
@@ -54,6 +57,9 @@ exports.createPages = async ({ actions, graphql }) => {
       case "About Us Template":
         template = path.resolve("./src/templates/About.js")
         break
+      case "Services Template":
+        template = path.resolve("./src/templates/Services.js")
+        break
 
       default:
         template = path.resolve(`./src/templates/basicpage.js`)
@@ -64,10 +70,8 @@ exports.createPages = async ({ actions, graphql }) => {
       path: uri,
       component: template,
       context: {
-        ...page,
         id: page.id,
         slug: page.uri,
-        title: page.title,
       },
     })
   })
