@@ -37,7 +37,7 @@ const ServicesContentContainer = styled.div`
   }
 `
 
-const StyledBoxedTitle = styled(BoxedTitle)`
+export const StyledBoxedTitle = styled(BoxedTitle)`
   border-width: 3px;
 
   h2 {

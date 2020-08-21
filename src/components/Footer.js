@@ -35,8 +35,10 @@ const BackToTop = styled.button`
   }
 `
 
-const Facebook = styled.a`
+export const Facebook = styled.a`
   ${tw`flex items-center justify-center my-4`};
+
+  justify-content: ${props => (props.align === "left" ? "start" : "center")};
 
   svg {
     fill: #fff;

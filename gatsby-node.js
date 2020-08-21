@@ -15,6 +15,12 @@ const query = `
           ... on WpServicesTemplateTemplate {
             templateName
           }
+          ... on WpProductsTemplateTemplate {
+            templateName
+          }
+          ... on WpContactTemplateTemplate {
+            templateName
+          }
         }
         isFrontPage
         id
@@ -30,6 +36,13 @@ const query = `
       nodes {
         id
         uri
+      }
+    }
+    allWpProduct {
+      nodes {
+        productsACFields {
+          productType
+        }
       }
     }
   }
@@ -60,7 +73,12 @@ exports.createPages = async ({ actions, graphql }) => {
       case "Services Template":
         template = path.resolve("./src/templates/Services.js")
         break
-
+      case "Products Template":
+        template = path.resolve("./src/templates/ProductsPage.js")
+        break
+      case "Contact Template":
+        template = path.resolve("./src/templates/Contact.js")
+        break
       default:
         template = path.resolve(`./src/templates/basicpage.js`)
         break
@@ -95,6 +113,17 @@ exports.createPages = async ({ actions, graphql }) => {
       component: path.resolve(`./src/templates/SingleProject.js`),
       context: {
         id: project.id,
+      },
+    })
+  })
+
+  data.allWpProduct.nodes.forEach(product => {
+    console.log(product)
+    actions.createPage({
+      path: `/products-services/${product.productsACFields.productType}`,
+      component: path.resolve(`./src/templates/ProductType.js`),
+      context: {
+        productType: product.productsACFields.productType,
       },
     })
   })

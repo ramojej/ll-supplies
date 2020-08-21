@@ -7,7 +7,7 @@ import BackgroundImage from "gatsby-background-image"
 import Separator from "../components/Separator"
 import tw, { styled } from "twin.macro"
 
-const AboutContainer = styled.div`
+export const AboutContainer = styled.div`
   ${tw`pt-6 text-sm`};
 
   p {
@@ -23,19 +23,19 @@ const AboutContainer = styled.div`
   }
 `
 
-const SeparatorContainer = styled.div`
+export const SeparatorContainer = styled.div`
   max-width: 120px;
   ${tw`mx-auto my-8`}
 `
 
-const StyledBoxedTitle = styled(BoxedTitle)`
+export const StyledBoxedTitle = styled(BoxedTitle)`
   ${tw`mb-12`}
   h2 {
     ${tw`tracking-widest`}
   }
 `
 
-const ContentContainer = styled.div`
+export const ContentContainer = styled.div`
   ${tw`max-w-3xl mx-auto mb-12 px-4`}
   p {
     ${tw`text-center`}

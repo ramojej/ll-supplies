@@ -13,7 +13,7 @@ import Header from "./header"
 import Footer from "./Footer"
 
 const StyledLayout = styled.div`
-  ${tw`flex flex-col min-h-screen`};
+  ${tw`flex flex-col min-h-screen overflow-hidden`};
 
   footer {
     ${tw`mt-auto`}
