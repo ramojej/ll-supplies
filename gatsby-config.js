@@ -18,6 +18,12 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: `UA-176065048-1`,
+      },
+    },
+    {
       resolve: `gatsby-source-wordpress-experimental`,
       options: {
         /*
