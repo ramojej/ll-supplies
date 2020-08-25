@@ -67,7 +67,7 @@ const AllProducts = () => {
   const { allWpProduct } = data
   const { placeholderImage } = data
 
-  console.log(allWpProduct)
+  //console.log(allWpProduct)
   //console.log(placeholderImage)
   return (
     <Gallery>

@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import { useForm } from "react-hook-form"
-import Confetti from "react-dom-confetti"
 import tw, { styled } from "twin.macro"
 
 const FormContainer = styled.div`
@@ -60,19 +59,19 @@ const FormContainer = styled.div`
   }
 `
 
-const config = {
-  angle: 90,
-  spread: 360,
-  startVelocity: 40,
-  elementCount: 70,
-  dragFriction: 0.12,
-  duration: 3000,
-  stagger: 3,
-  width: "10px",
-  height: "10px",
-  perspective: "499px",
-  colors: ["#a864fd", "#29cdff", "#78ff44", "#ff718d", "#fdff6a"],
-}
+// const config = {
+//   angle: 90,
+//   spread: 360,
+//   startVelocity: 40,
+//   elementCount: 70,
+//   dragFriction: 0.12,
+//   duration: 3000,
+//   stagger: 3,
+//   width: "10px",
+//   height: "10px",
+//   perspective: "499px",
+//   colors: ["#a864fd", "#29cdff", "#78ff44", "#ff718d", "#fdff6a"],
+// }
 
 const Form = () => {
   const { register, errors, handleSubmit, formState } = useForm({
@@ -81,18 +80,18 @@ const Form = () => {
 
   const [visibleForm, clearVisibleForm] = useState(true)
 
-  const [party, setParty] = useState(false)
+  //const [party, setParty] = useState(false)
 
   const onSubmit = values => {
     console.log(values)
     clearVisibleForm(false)
-    setParty(true)
+    //setParty(true)
   }
   return (
     <FormContainer>
       {!visibleForm && (
         <>
-          <Confetti active={party} config={config} />
+          {/* <Confetti active={party} config={config} /> */}
           <h4>Thank you for contacting us! We will get back to you shortly!</h4>
         </>
       )}

@@ -66,13 +66,17 @@ const StyledLink = styled(Link)`
   }
 `
 
-const ProductMenu = () => {
-  const { wpMenu } = useStaticQuery(query)
-  //console.log(wpMenu)
+const ProductMenu = ({ menu }) => {
+  const { allWpMenu } = useStaticQuery(query)
+  //console.log(allWpMenu)
+  const menuToLoop =
+    menu === "project"
+      ? allWpMenu.nodes[1].menuItems.nodes
+      : allWpMenu.nodes[0].menuItems.nodes
   return (
     <OuterMenuContainer>
       <MenuContainer>
-        {wpMenu.menuItems.nodes.map(item => {
+        {menuToLoop.map(item => {
           return (
             <StyledLink to={item.path} key={item.key} activeClassName="active">
               {item.title}
@@ -85,15 +89,18 @@ const ProductMenu = () => {
 }
 
 export const query = graphql`
-  {
-    wpMenu(slug: { eq: "products-menu" }) {
-      name
-      menuItems {
-        nodes {
-          key: id
-          title: label
-          path
-          url
+  query ProductsProjectsMenu {
+    allWpMenu(skip: 1) {
+      nodes {
+        name
+        slug
+        menuItems {
+          nodes {
+            key: id
+            title: label
+            path
+            url
+          }
         }
       }
     }

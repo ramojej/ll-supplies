@@ -11,10 +11,18 @@ const StyledBG = styled(BG)`
   }
 `
 
-const ProductBanner = ({ children }) => {
+const ProductBanner = ({ children, page }) => {
+  //console.log(page)
   const data = useStaticQuery(graphql`
     query {
       placeholderImage: file(relativePath: { eq: "banner-products.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 1920) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+      projectBanner: file(relativePath: { eq: "banner-proj.png" }) {
         childImageSharp {
           fluid(maxWidth: 1920) {
             ...GatsbyImageSharpFluid_withWebp
@@ -25,8 +33,12 @@ const ProductBanner = ({ children }) => {
   `)
   return (
     <StyledBG
-      fluid={data.placeholderImage.childImageSharp.fluid}
-      alt="Products Banner"
+      fluid={
+        page === "project"
+          ? data.projectBanner.childImageSharp.fluid
+          : data.placeholderImage.childImageSharp.fluid
+      }
+      alt="Page Banner"
     >
       {children}
     </StyledBG>

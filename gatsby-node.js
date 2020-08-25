@@ -21,6 +21,9 @@ const query = `
           ... on WpContactTemplateTemplate {
             templateName
           }
+          ... on WpProjectTemplateTemplate {
+            templateName
+          }
         }
         isFrontPage
         id
@@ -75,6 +78,9 @@ exports.createPages = async ({ actions, graphql }) => {
         break
       case "Products Template":
         template = path.resolve("./src/templates/ProductsPage.js")
+        break
+      case "Project Template":
+        template = path.resolve("./src/templates/Projects.js")
         break
       case "Contact Template":
         template = path.resolve("./src/templates/Contact.js")

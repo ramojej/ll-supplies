@@ -15,6 +15,7 @@ const StyledBackgroundImage = styled(BackgroundImage)`
 
 const InnerContainer = styled.div`
   ${tw`p-4 flex items-center justify-between`};
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
 
   @media ${props => props.theme.screens.lg} {
     ${tw`p-8`}
