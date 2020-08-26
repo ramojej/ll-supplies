@@ -105,16 +105,14 @@ const Form = () => {
     <FormContainer>
       {!visibleForm && (
         <>
-          {/* <Confetti active={party} config={config} /> */}
           <h4>Thank you for contacting us! We will get back to you shortly!</h4>
         </>
       )}
       {visibleForm && (
-        <NetlifyFormProvider>
+        <NetlifyFormProvider {...netlify}>
           <NetlifyFormComponent onSubmit={handleSubmit(onSubmit)}>
             <Honeypot />
             <div>
-              <input type="hidden" name="form-name" value="react-hook-form" />
               <input
                 type="text"
                 id="name"
