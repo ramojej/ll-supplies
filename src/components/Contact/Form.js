@@ -114,7 +114,6 @@ const Form = () => {
           <NetlifyFormComponent onSubmit={handleSubmit(onSubmit)}>
             <Honeypot />
             <div>
-              <input type="hidden" name="form-name" value="contact" />
               <input
                 type="text"
                 id="name"
