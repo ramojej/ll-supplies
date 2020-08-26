@@ -88,9 +88,7 @@ const Form = () => {
     name: "react-hook-form",
     action: "/thanks",
     honeypotName: "bot-field",
-    onSuccess: (response, context) => {
-      console.log("Successfully sent form data to Netlify Server")
-    },
+    onSuccess: () => clearVisibleForm(false),
   })
 
   const { isSubmitting } = formState
