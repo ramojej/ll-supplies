@@ -39,6 +39,9 @@ const query = `
       nodes {
         id
         uri
+        projectsCustomFields {
+          projectType
+        }
       }
     }
     allWpProduct {
@@ -123,10 +126,19 @@ exports.createPages = async ({ actions, graphql }) => {
     })
   })
 
-  data.allWpProduct.nodes.forEach(product => {
-    console.log(product)
+  data.allWpProject.nodes.forEach(project => {
     actions.createPage({
-      path: `/products-services/${product.productsACFields.productType}`,
+      path: `/projects/${project.projectsCustomFields.projectType}`,
+      component: path.resolve(`./src/templates/ProjectType.js`),
+      context: {
+        projectType: project.projectsCustomFields.projectType,
+      },
+    })
+  })
+
+  data.allWpProduct.nodes.forEach(product => {
+    actions.createPage({
+      path: `/products-services/${product.productsACFields.productType}/`,
       component: path.resolve(`./src/templates/ProductType.js`),
       context: {
         productType: product.productsACFields.productType,

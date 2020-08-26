@@ -73,18 +73,38 @@ const FormContainer = styled.div`
 //   colors: ["#a864fd", "#29cdff", "#78ff44", "#ff718d", "#fdff6a"],
 // }
 
+function encode(data) {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&")
+}
+
 const Form = () => {
   const { register, errors, handleSubmit, formState } = useForm({
     mode: "onChange",
   })
 
+  const { isSubmitting } = formState
+
   const [visibleForm, clearVisibleForm] = useState(true)
 
   //const [party, setParty] = useState(false)
 
-  const onSubmit = values => {
-    console.log(values)
-    clearVisibleForm(false)
+  const onSubmit = (values, e) => {
+    e.preventDefault()
+    const form = e.target
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({
+        "form-name": form.getAttribute("name"),
+        ...values,
+      }),
+    })
+      .then(() => clearVisibleForm(false))
+      .catch(error => alert(error))
+    //console.log(values)
+
     //setParty(true)
   }
   return (
@@ -96,8 +116,14 @@ const Form = () => {
         </>
       )}
       {visibleForm && (
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          method="post"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+        >
           <div>
+            <input type="hidden" name="form-name" value="contact" />
             <input
               type="text"
               id="name"
@@ -164,7 +190,9 @@ const Form = () => {
               ref={register}
             />
           </div>
-          <button type="submit">Submit</button>
+          <button type="submit" disabled={isSubmitting}>
+            {isSubmitting ? "Submitting..." : "Submit"}
+          </button>
         </form>
       )}
     </FormContainer>

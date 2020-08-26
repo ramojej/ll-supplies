@@ -56,7 +56,7 @@ const SeparatorContainer = styled.div`
 `
 
 const Position = styled.h4`
-  ${tw`text-xs font-hairline tracking-wider uppercase border border-black inline px-2 py-1`}
+  ${tw`text-xs font-light tracking-wider uppercase border border-black inline px-2 py-1`}
 `
 
 const EachTestimonial = ({ node }) => {

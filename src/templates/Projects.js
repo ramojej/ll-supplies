@@ -1,11 +1,10 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
-import { Container } from "../components/styles/Styles"
-import { ContentContainer } from "./ProductsPage"
 import ProductBanner from "../components/Products/ProductBanner"
 import ProductMenu from "../components/Products/ProductMenu"
 import { StyledBoxedTitle } from "./Services"
+import AllProjects from "../components/Projects/AllProjects"
 
 const Projects = ({ data: { wpPage } }) => {
   //console.log(wpPage)
@@ -17,11 +16,7 @@ const Projects = ({ data: { wpPage } }) => {
         </StyledBoxedTitle>
       </ProductBanner>
       <ProductMenu menu="project" />
-      <Container>
-        <ContentContainer>
-          <div dangerouslySetInnerHTML={{ __html: wpPage.content }} />
-        </ContentContainer>
-      </Container>
+      <AllProjects />
     </Layout>
   )
 }
@@ -29,7 +24,6 @@ const Projects = ({ data: { wpPage } }) => {
 export const query = graphql`
   query Projects($id: String!) {
     wpPage(id: { eq: $id }) {
-      content
       title
     }
   }

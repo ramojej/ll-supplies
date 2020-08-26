@@ -35,13 +35,15 @@ const Subtitle = styled.h4`
   color: rgba(255, 255, 255, 0.8);
 `
 
-export const StyledButton = styled(Link)`
+export const StyledButton = styled.button`
   ${tw`uppercase text-white text-sm relative flex items-center justify-center`};
   background: ${props => props.theme.colors.black};
   border-top: 2px solid transparent;
   border-bottom: 2px solid transparent;
   padding: 8px 10px;
   min-height: 41px;
+  max-width: ${props => (props.maxWidth ? "150px" : "auto")};
+  margin: ${props => (props.maxWidth ? "10px auto" : 0)};
   transition: all 0.2s ease;
 
   &:active {
@@ -110,7 +112,9 @@ const SlideItem = ({ node }) => {
           }`}</H3>
           <Subtitle>{node.projectsCustomFields.subTitle}</Subtitle>
         </div>
-        <StyledButton to={`projects/${node.slug}`}>Learn More</StyledButton>
+        <StyledButton>
+          <Link to={`projects/${node.slug}`}>Learn More</Link>
+        </StyledButton>
       </InnerContainer>
     </StyledBackgroundImage>
   )

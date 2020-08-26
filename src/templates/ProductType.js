@@ -9,7 +9,7 @@ import { StyledBoxedTitle } from "./Services"
 import { Gallery, StyledBG } from "../components/Products/AllProducts"
 
 const ProductType = ({ data }) => {
-  console.log(data)
+  //console.log(data)
   const { allWpProduct } = data
   const { placeholderImage } = data
   return (
