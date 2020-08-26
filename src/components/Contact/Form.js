@@ -98,7 +98,7 @@ const Form = () => {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
         "form-name": form.getAttribute("name"),
-        ...values,
+        values,
       }),
     })
       .then(() => clearVisibleForm(false))
@@ -116,12 +116,7 @@ const Form = () => {
         </>
       )}
       {visibleForm && (
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          method="post"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
-        >
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div>
             <input type="hidden" name="form-name" value="contact" />
             <input

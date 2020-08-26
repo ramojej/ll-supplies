@@ -41,7 +41,7 @@ const EachInfo = styled.div`
 `
 
 const ContactInfo = ({ info }) => {
-  console.log(info)
+  //console.log(info)
   return (
     <ContactInfoContainer>
       <DetailsContainer>

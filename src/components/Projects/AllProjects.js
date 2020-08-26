@@ -31,7 +31,7 @@ const AllProjects = () => {
         }
       `}
       render={({ allWpProject }) => {
-        console.log(allWpProject)
+        //console.log(allWpProject)
         //pass props to images, also passed the title, slug, and subtitle
         return (
           // <Gallery
