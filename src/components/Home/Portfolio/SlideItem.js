@@ -113,7 +113,7 @@ const SlideItem = ({ node }) => {
           <Subtitle>{node.projectsCustomFields.subTitle}</Subtitle>
         </div>
         <StyledButton>
-          <Link to={`projects/${node.slug}/`}>Learn More</Link>
+          <Link to={`projects/${node.slug}/`}>View Project</Link>
         </StyledButton>
       </InnerContainer>
     </StyledBackgroundImage>

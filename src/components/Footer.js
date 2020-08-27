@@ -12,14 +12,14 @@ const UpperFooter = styled.div`
 
   a {
     ${tw`text-sm`}
-    color: #666;
+    color: #b5b5b5;
   }
 `
 
 const LowerFooter = styled.div`
   ${tw`text-center py-4 text-sm`};
   background: ${props => props.theme.colors.darkGray};
-  color: #666;
+  color: #b5b5b5;
 `
 
 const LogoContainer = styled.div`

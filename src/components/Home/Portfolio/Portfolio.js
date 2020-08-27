@@ -76,10 +76,10 @@ const Portfolio = () => {
         })}
       </StyledSlider>
       <ButtonsContainer>
-        <Button onClick={prev}>
+        <Button onClick={prev} aria-label="Previous slide">
           <FiChevronLeft />
         </Button>
-        <Button onClick={next}>
+        <Button onClick={next} aria-label="Next slide">
           <FiChevronRight />
         </Button>
       </ButtonsContainer>
