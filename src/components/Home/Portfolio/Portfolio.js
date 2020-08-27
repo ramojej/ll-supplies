@@ -89,7 +89,7 @@ const Portfolio = () => {
 
 export const query = graphql`
   query HomePortfolio {
-    allWpProject {
+    allWpProject(limit: 4) {
       nodes {
         title
         featuredImage {

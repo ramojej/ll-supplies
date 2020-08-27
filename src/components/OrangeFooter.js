@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "gatsby"
 import { StyledButton } from "../components/Home/Portfolio/SlideItem"
 import tw, { styled } from "twin.macro"
 
@@ -23,7 +24,9 @@ const OrangeFooter = () => {
     <OrangeContainer>
       <H3>Have a project in mind?</H3>
       <p>Contact us to get started</p>
-      <StyledButton to="/contact-us">Contact Us</StyledButton>
+      <Link to="/contact-us">
+        <StyledButton>Contact Us</StyledButton>
+      </Link>
     </OrangeContainer>
   )
 }

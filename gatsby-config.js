@@ -13,8 +13,11 @@ const tailwindConfig = require("./tailwind.config.js")
 module.exports = {
   siteMetadata: {
     title: `L&L Supplies`,
-    description: `Website for L&L Supplies`,
-    author: `@jejomarss`,
+    titleTemplate: "%s · L&L Supplies",
+    description: `At L&L, we are specialists in sourcing and supplying stone materials for both residential and commercial purposes.`,
+    author: `Jejomar Dorongon`,
+    image: "/banner-home.png",
+    siteUrl: "https://lnlsupplies.netlify.app",
   },
   plugins: [
     {

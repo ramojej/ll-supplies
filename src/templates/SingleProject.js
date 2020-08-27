@@ -4,6 +4,7 @@ import Layout from "../components/layout"
 import { OuterContainer, Container } from "../components/styles/Styles"
 import BG from "gatsby-background-image"
 import { BsClock, BsInfoCircleFill, BsFillPersonFill } from "react-icons/bs"
+import SEO from "../components/seo"
 import tw, { styled } from "twin.macro"
 import Carousel, { Modal, ModalGateway } from "react-images"
 
@@ -103,6 +104,15 @@ const SingleProject = ({ data: { wpProject } }) => {
 
   return (
     <Layout>
+      <SEO
+        title={wpProject.seo.title}
+        description={wpProject.seo.metaDesc}
+        image={
+          wpProject.seo.opengraphImage
+            ? wpProject.seo.opengraphImage.localFile.publicURL
+            : null
+        }
+      />
       <OuterContainer>
         <Container>
           <H1>{wpProject.title}</H1>
@@ -168,6 +178,15 @@ export const query = graphql`
       author {
         node {
           name
+        }
+      }
+      seo {
+        metaDesc
+        title
+        opengraphImage {
+          localFile {
+            publicURL
+          }
         }
       }
       projectsCustomFields {

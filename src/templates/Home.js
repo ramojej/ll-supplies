@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Hero from "../components/Home/Hero/Hero"
+import SEO from "../components/seo"
 import WhatWeDo from "../components/Home/WhatWeDo/WhatWeDo"
 import Quality from "../components/Home/Quality/Quality"
 import Portfolio from "../components/Home/Portfolio/Portfolio"
@@ -9,20 +10,25 @@ import Services from "../components/Home/Services/Services"
 import Testimonials from "../components/Home/Testimonials/Testimonials"
 import Layout from "../components/layout"
 
-const HomePage = ({
-  data: {
-    wpPage: { uri, id, blocks },
-  },
-}) => {
+const HomePage = ({ data: { wpPage } }) => {
   return (
-    <Layout uri={uri}>
-      <Hero id={id} blocks={blocks} />
-      <WhatWeDo blocks={blocks} />
-      <Quality blocks={blocks} />
+    <Layout uri={wpPage.uri}>
+      <SEO
+        title={wpPage.seo.title}
+        description={wpPage.seo.metaDesc}
+        image={
+          wpPage.seo.opengraphImage
+            ? wpPage.seo.opengraphImage.localFile.publicURL
+            : null
+        }
+      />
+      <Hero id={wpPage.id} blocks={wpPage.blocks} />
+      <WhatWeDo blocks={wpPage.blocks} />
+      <Quality blocks={wpPage.blocks} />
       <Portfolio />
-      <Accreditations blocks={blocks} />
-      <Services blocks={blocks} />
-      <Testimonials blocks={blocks} />
+      <Accreditations blocks={wpPage.blocks} />
+      <Services blocks={wpPage.blocks} />
+      <Testimonials blocks={wpPage.blocks} />
     </Layout>
   )
 }
@@ -36,6 +42,15 @@ export const query = graphql`
       content
       status
       uri
+      seo {
+        metaDesc
+        title
+        opengraphImage {
+          localFile {
+            publicURL
+          }
+        }
+      }
       blocks {
         ... on WpAcfHeroBlock {
           blockHeroFields {
