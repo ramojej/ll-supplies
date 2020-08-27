@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
+import SEO from "../components/seo"
 import ProductBanner from "../components/Products/ProductBanner"
 import ProductMenu from "../components/Products/ProductMenu"
 import OrangeFooter from "../components/OrangeFooter"
@@ -14,6 +15,9 @@ const ProductType = ({ data }) => {
   const { placeholderImage } = data
   return (
     <Layout>
+      <SEO
+        title={`${allWpProduct.nodes[0].productsACFields.productType} - L&L Supplies`}
+      />
       <ProductBanner>
         <StyledBoxedTitle color="#fff">
           <h2>Products</h2>

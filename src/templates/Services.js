@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
+import SEO from "../components/seo"
 import { BoxedTitle } from "../components/styles/Styles"
 import { TitleWithUnderLine } from "../components/styles/Title"
 import BackgroundImage from "gatsby-background-image"
@@ -65,6 +66,15 @@ const Services = ({ data: { wpPage } }) => {
 
   return (
     <Layout>
+      <SEO
+        title={wpPage.seo.title}
+        description={wpPage.seo.metaDesc}
+        image={
+          wpPage.seo.opengraphImage
+            ? wpPage.seo.opengraphImage.localFile.publicURL
+            : null
+        }
+      />
       <ServicesPageContainer>
         <BannerContentContainer>
           <BGContainer
@@ -121,6 +131,15 @@ export const query = graphql`
   query ServicesPage($id: String!) {
     wpPage(id: { eq: $id }) {
       title
+      seo {
+        metaDesc
+        title
+        opengraphImage {
+          localFile {
+            publicURL
+          }
+        }
+      }
       featuredImage {
         node {
           altText

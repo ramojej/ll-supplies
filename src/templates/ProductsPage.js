@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
+import SEO from "../components/seo"
 import { Container } from "../components/styles/Styles"
 import ProductBanner from "../components/Products/ProductBanner"
 import ProductMenu from "../components/Products/ProductMenu"
@@ -28,6 +29,15 @@ const ProductsPage = ({ data: { wpPage } }) => {
   //console.log(wpPage)
   return (
     <Layout>
+      <SEO
+        title={wpPage.seo.title}
+        description={wpPage.seo.metaDesc}
+        image={
+          wpPage.seo.opengraphImage
+            ? wpPage.seo.opengraphImage.localFile.publicURL
+            : null
+        }
+      />
       <ProductBanner page>
         <StyledBoxedTitle color="#fff">
           <h2>{wpPage.title}</h2>
@@ -50,6 +60,15 @@ export const query = graphql`
     wpPage(id: { eq: $id }) {
       content
       title
+      seo {
+        metaDesc
+        title
+        opengraphImage {
+          localFile {
+            publicURL
+          }
+        }
+      }
     }
   }
 `

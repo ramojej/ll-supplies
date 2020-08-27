@@ -24,7 +24,7 @@ const OrangeFooter = () => {
     <OrangeContainer>
       <H3>Have a project in mind?</H3>
       <p>Contact us to get started</p>
-      <Link to="/contact-us">
+      <Link to="/contact-us/">
         <StyledButton>Contact Us</StyledButton>
       </Link>
     </OrangeContainer>

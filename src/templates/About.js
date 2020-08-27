@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
+import SEO from "../components/seo"
 import { BoxedTitle } from "../components/styles/Styles"
 import { TitleWithUnderLine } from "../components/styles/Title"
 import BackgroundImage from "gatsby-background-image"
@@ -103,6 +104,15 @@ const About = ({ data: { wpPage } }) => {
   //console.log(blockMissionFields)
   return (
     <Layout>
+      <SEO
+        title={wpPage.seo.title}
+        description={wpPage.seo.metaDesc}
+        image={
+          wpPage.seo.opengraphImage
+            ? wpPage.seo.opengraphImage.localFile.publicURL
+            : null
+        }
+      />
       <AboutContainer>
         <StyledBoxedTitle>
           <h2>{wpPage.title}</h2>
@@ -171,6 +181,15 @@ export const query = graphql`
     wpPage(id: { eq: $id }) {
       title
       content
+      seo {
+        metaDesc
+        title
+        opengraphImage {
+          localFile {
+            publicURL
+          }
+        }
+      }
       blocks {
         ... on WpAcfMissionvisionBlock {
           blockMissionFields {

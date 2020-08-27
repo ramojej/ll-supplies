@@ -5,12 +5,16 @@ import ProductBanner from "../components/Products/ProductBanner"
 import ProductMenu from "../components/Products/ProductMenu"
 import { Container } from "../components/styles/Styles"
 import RespGallery from "../components/Projects/RespGallery"
+import SEO from "../components/seo"
 import { StyledBoxedTitle } from "./Services"
 
 const ProjectType = ({ data: { allWpProject } }) => {
   //console.log(allWpProject)
   return (
     <Layout>
+      <SEO
+        title={`${allWpProject.nodes[0].projectsCustomFields.projectType} - L&L Supplies`}
+      />
       <ProductBanner page="project">
         <StyledBoxedTitle color="#fff">
           <h2>Projects</h2>
@@ -36,6 +40,7 @@ export const query = graphql`
         slug
         projectsCustomFields {
           subTitle
+          projectType
         }
         featuredImage {
           node {

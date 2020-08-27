@@ -6,7 +6,7 @@ import BG from "gatsby-background-image"
 import { BsClock, BsInfoCircleFill, BsFillPersonFill } from "react-icons/bs"
 import SEO from "../components/seo"
 import tw, { styled } from "twin.macro"
-import Carousel, { Modal, ModalGateway } from "react-images"
+//import Carousel, { Modal, ModalGateway } from "react-images"
 
 const H1 = styled.h1`
   ${tw`font-bold tracking-widest text-2xl uppercase text-center`}
@@ -91,16 +91,16 @@ const StyledBG = styled(BG)`
 `
 
 const SingleProject = ({ data: { wpProject } }) => {
-  console.log(wpProject)
+  //console.log(wpProject)
 
-  const [modalIsOpen, setModalIsOpen] = useState(false)
-  const [modalCurrentIndex, setModalCurrentIndex] = useState(0)
+  // const [modalIsOpen, setModalIsOpen] = useState(false)
+  // const [modalCurrentIndex, setModalCurrentIndex] = useState(0)
 
-  const closeModal = () => setModalIsOpen(false)
-  const openModal = imageIndex => {
-    setModalCurrentIndex(imageIndex)
-    setModalIsOpen(true)
-  }
+  // const closeModal = () => setModalIsOpen(false)
+  // const openModal = imageIndex => {
+  //   setModalCurrentIndex(imageIndex)
+  //   setModalIsOpen(true)
+  // }
 
   return (
     <Layout>
@@ -147,7 +147,7 @@ const SingleProject = ({ data: { wpProject } }) => {
               )
             })}
           </Gallery>
-          {ModalGateway && (
+          {/* {ModalGateway && (
             <ModalGateway>
               {modalIsOpen && (
                 <Modal onClose={closeModal}>
@@ -158,7 +158,7 @@ const SingleProject = ({ data: { wpProject } }) => {
                 </Modal>
               )}
             </ModalGateway>
-          )}
+          )} */}
         </Container>
       </OuterContainer>
     </Layout>
