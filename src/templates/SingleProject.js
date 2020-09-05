@@ -1,9 +1,10 @@
-import React, { useState } from "react"
-import { graphql } from "gatsby"
+import React from "react"
+import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import { OuterContainer, Container } from "../components/styles/Styles"
 import BG from "gatsby-background-image"
 import { BsClock, BsInfoCircleFill, BsFillPersonFill } from "react-icons/bs"
+import { AiOutlineClose } from "react-icons/ai"
 import SEO from "../components/seo"
 import tw, { styled } from "twin.macro"
 //import Carousel, { Modal, ModalGateway } from "react-images"
@@ -90,6 +91,13 @@ const StyledBG = styled(BG)`
   }
 `
 
+const XContainer = styled.div`
+  ${tw`flex items-center justify-center mt-8`};
+  svg {
+    ${tw`text-2xl`}
+  }
+`
+
 const SingleProject = ({ data: { wpProject } }) => {
   //console.log(wpProject)
 
@@ -159,6 +167,11 @@ const SingleProject = ({ data: { wpProject } }) => {
               )}
             </ModalGateway>
           )} */}
+          <XContainer>
+            <Link to="/projects">
+              <AiOutlineClose />
+            </Link>
+          </XContainer>
         </Container>
       </OuterContainer>
     </Layout>
