@@ -2,10 +2,18 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
-const Logo = () => {
+const Logo = color => {
+  console.log(color)
   const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "Logo.png" }) {
+      placeholderImage: file(relativePath: { eq: "logo-red-a.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 300) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+      whiteRed: file(relativePath: { eq: "logo-red-b.png" }) {
         childImageSharp {
           fluid(maxWidth: 300) {
             ...GatsbyImageSharpFluid_withWebp
@@ -16,7 +24,11 @@ const Logo = () => {
   `)
   return (
     <Img
-      fluid={data.placeholderImage.childImageSharp.fluid}
+      fluid={
+        color === "white"
+          ? data.whiteRed.childImageSharp.fluid
+          : data.placeholderImage.childImageSharp.fluid
+      }
       alt="L&amp;L Supplies logo"
     />
   )

@@ -23,7 +23,7 @@ const WhatWeDoContentContainer = styled(motion.div)`
 const LogoContainer = styled(motion.div)`
   max-width: 300px;
   margin: 20px auto 0;
-  filter: brightness(0) invert(1);
+  /* filter: brightness(0) invert(1); */
 
   @media ${props => props.theme.screens.lg} {
     ${tw`w-full`};
@@ -89,7 +89,7 @@ const WhatWeDo = ({ blocks }) => {
               hidden: { opacity: 0, scale: 0 },
             }}
           >
-            <Logo />
+            <Logo color="white" />
           </LogoContainer>
         </WhatWeDoGrid>
       </Container>
