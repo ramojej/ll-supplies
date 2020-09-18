@@ -11,7 +11,7 @@ import { StyledBoxedTitle } from "./Services"
 import tw, { styled } from "twin.macro"
 
 export const ContentContainer = styled.div`
-  ${tw`text-center py-8`}
+  ${tw`text-center py-8 hidden`}
   p {
     color: #666;
     ${tw`text-sm`}

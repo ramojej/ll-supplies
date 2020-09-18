@@ -44,6 +44,10 @@ const MainLI = styled.li`
       color: rgba(255, 255, 255, 0.7);
     }
 
+    & a.active:after {
+      display: none !important;
+    }
+
     a:hover {
       color: #fff;
     }

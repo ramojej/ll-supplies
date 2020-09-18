@@ -70,7 +70,7 @@ const AllProducts = () => {
   //console.log(allWpProduct)
   //console.log(placeholderImage)
   return (
-    <Gallery>
+    <Gallery margintop="large">
       {allWpProduct.nodes.map((product, index) => (
         <StyledBG
           key={index}

@@ -12,7 +12,7 @@ export const StyledLink = styled(GatsbyLink)`
   }
 
   &.active + svg {
-    stroke: #fff;
+    stroke: ${props => props.theme.colors.red};
   }
 
   @media ${props => props.theme.screens.lg} {
@@ -22,11 +22,11 @@ export const StyledLink = styled(GatsbyLink)`
       props.uri === "/" ? "#fff" : props.theme.colors.lightGray};
 
     &.active {
-      color: ${props => (props.uri === "/" ? props.theme.colors.red : "#fff")};
+      color: ${props => props.theme.colors.red};
     }
 
     &.active:after {
-      display: ${props => (props.uri === "/" ? "block" : "none")};
+      display: block;
       content: "";
       height: 2px;
       width: 100%;

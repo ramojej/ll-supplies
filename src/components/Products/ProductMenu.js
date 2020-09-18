@@ -71,8 +71,8 @@ const ProductMenu = ({ menu }) => {
   //console.log(allWpMenu)
   const menuToLoop =
     menu === "project"
-      ? allWpMenu.nodes[1].menuItems.nodes
-      : allWpMenu.nodes[0].menuItems.nodes
+      ? allWpMenu.nodes[0].menuItems.nodes
+      : allWpMenu.nodes[2].menuItems.nodes
   return (
     <OuterMenuContainer>
       <MenuContainer>
@@ -90,7 +90,7 @@ const ProductMenu = ({ menu }) => {
 
 export const query = graphql`
   query ProductsProjectsMenu {
-    allWpMenu(skip: 1) {
+    allWpMenu(sort: { order: ASC, fields: id }) {
       nodes {
         name
         slug
