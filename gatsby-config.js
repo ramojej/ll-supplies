@@ -20,6 +20,7 @@ module.exports = {
     siteUrl: "https://lnlsupplies.netlify.app",
   },
   plugins: [
+    `gatsby-plugin-preact`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
