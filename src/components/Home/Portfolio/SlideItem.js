@@ -1,15 +1,21 @@
 import React from "react"
 import PropTypes from "prop-types"
-import BackgroundImage from "gatsby-background-image"
+import GatsbyImage from "gatsby-image"
 import { Link } from "gatsby"
 import tw, { styled } from "twin.macro"
 
-const StyledBackgroundImage = styled(BackgroundImage)`
-  ${tw`flex flex-col justify-end`};
+const StyledBackgroundImage = styled.div`
+  ${tw`flex flex-col justify-end relative overflow-hidden`};
   height: 18rem;
 
+  .gatsby-image-wrapper {
+    position: absolute !important;
+    width: 100%;
+    z-index: -1;
+  }
+
   @media ${props => props.theme.screens.lg} {
-    height: 24rem;
+    height: 22rem;
   }
 `
 
@@ -100,9 +106,11 @@ export const StyledButton = styled.button`
 const SlideItem = ({ node }) => {
   //console.log(node)
   return (
-    <StyledBackgroundImage
-      fluid={node.featuredImage.node.localFile.childImageSharp.fluid}
-    >
+    <StyledBackgroundImage>
+      <GatsbyImage
+        fluid={node.featuredImage.node.localFile.childImageSharp.fluid}
+        alt="Project"
+      />
       <InnerContainer>
         <div>
           <H3>{`${

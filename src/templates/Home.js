@@ -61,6 +61,11 @@ export const query = graphql`
                 childImageSharp {
                   fluid(quality: 90, maxWidth: 1920) {
                     ...GatsbyImageSharpFluid_withWebp
+                    fallback: base64
+                    src
+                    srcSet
+                    srcWebp
+                    srcSetWebp
                   }
                 }
               }
@@ -82,6 +87,11 @@ export const query = graphql`
                 childImageSharp {
                   fluid(quality: 90, maxWidth: 1920) {
                     ...GatsbyImageSharpFluid_withWebp
+                    fallback: base64
+                    src
+                    srcSet
+                    srcWebp
+                    srcSetWebp
                   }
                 }
               }

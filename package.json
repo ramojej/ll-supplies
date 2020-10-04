@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@wardpeet/gatsby-image-nextgen": "0.0.1",
     "autoprefixer": "^9.8.6",
     "babel-plugin-styled-components": "^1.11.1",
     "cssnano": "^4.1.10",

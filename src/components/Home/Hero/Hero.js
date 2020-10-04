@@ -1,29 +1,26 @@
 import React from "react"
-import BackgroundImage from "gatsby-background-image"
+import { GatsbyImage } from "@wardpeet/gatsby-image-nextgen/compat"
 import PropTypes from "prop-types"
 import tw, { styled } from "twin.macro"
 import { motion } from "framer-motion"
-import { useStaticQuery, graphql } from "gatsby"
-
-const defaultHeroImage = graphql`
-  {
-    imageSharp(id: { eq: "de4372a7-7484-5624-b1c4-3b3e4aa72f85" }) {
-      fluid {
-        ...GatsbyImageSharpFluid_withWebp
-      }
-    }
-  }
-`
 
 const BackgroundImageSection = styled.section`
   ${tw`h-screen`}
 `
 
-const StyledBackgroundImage = styled(BackgroundImage)`
+const StyledBackgroundImage = styled.div`
   ${tw`h-full flex items-center justify-center`};
 
   & div {
     ${tw`flex items-center justify-center flex-col mt-12`}
+  }
+
+  & .heroImage {
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    position: absolute !important;
+    margin-top: 0;
   }
 
   h1 {
@@ -74,21 +71,48 @@ const item = {
 
 const Hero = ({ blocks }) => {
   const { blockHeroFields } = blocks.find(hero => hero.blockHeroFields)
-  //console.log(blocks)
+  //console.log(blockHeroFields)
 
   //fallback if somehow the hero image is not filled
-  const { imageSharp } = useStaticQuery(defaultHeroImage)
+  //const { imageSharp } = useStaticQuery(defaultHeroImage)
   //console.log(imageSharp)
   return (
     <BackgroundImageSection>
-      <StyledBackgroundImage
-        fluid={
-          blockHeroFields.heroImage.localFile.childImageSharp.fluid
-            ? blockHeroFields.heroImage.localFile.childImageSharp.fluid
-            : imageSharp.fluid
-        }
-        alt="L&amp;L Supplies Hero Image"
-      >
+      <StyledBackgroundImage>
+        {/* <GatsbyImage
+          placeholder={{
+            fallback:
+              blockHeroFields.heroImage.localFile.childImageSharp.fluid
+                .fallback,
+          }}
+          images={{
+            fallback: {
+              src:
+                blockHeroFields.heroImage.localFile.childImageSharp.fluid.src,
+              srcSet:
+                blockHeroFields.heroImage.localFile.childImageSharp.fluid
+                  .srcSet,
+            },
+            sources: [
+              {
+                src:
+                  blockHeroFields.heroImage.localFile.childImageSharp.fluid
+                    .srcWebp,
+                srcSet:
+                  blockHeroFields.heroImage.localFile.childImageSharp.fluid
+                    .srcSetWebp,
+                type: "image/webp",
+              },
+            ],
+          }}
+          layout="responsive"
+          alt="L&amp;L Supplies Hero Image"
+          className="heroImage"
+        /> */}
+        <GatsbyImage
+          fluid={blockHeroFields.heroImage.localFile.childImageSharp.fluid}
+          className="heroImage"
+        />
         <motion.div variants={container} initial="hidden" animate="show">
           <motion.h1 variants={item}>{blockHeroFields.slogan}</motion.h1>
           <motion.p variants={item}>{blockHeroFields.heroText}</motion.p>

@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { OuterContainer, Container } from "../../styles/Styles"
 import { TitleWithUnderLine } from "../../styles/Title"
-import BackgroundImage from "gatsby-background-image"
+import { GatsbyImage } from "@wardpeet/gatsby-image-nextgen/compat"
 import tw, { styled } from "twin.macro"
 
 const StyledQualityContainer = styled(Container)`
@@ -40,18 +40,33 @@ const StyledOuterContainer = styled(OuterContainer)`
   }
 `
 
-const StyledBackgroundImage = styled(BackgroundImage)`
+const StyledBackgroundImage = styled.div`
   background-position: right;
   background-size: cover;
+
+  .qualityImage {
+    position: absolute !important;
+    width: 100%;
+    display: none;
+
+    @media ${props => props.theme.screens.lg} {
+      display: block;
+    }
+  }
 `
 
 const Quality = ({ blocks }) => {
   const { blockQualityFields } = blocks.find(block => block.blockQualityFields)
 
   return (
-    <StyledBackgroundImage
-      fluid={blockQualityFields.backgroundImage.localFile.childImageSharp.fluid}
-    >
+    <StyledBackgroundImage>
+      <GatsbyImage
+        fluid={
+          blockQualityFields.backgroundImage.localFile.childImageSharp.fluid
+        }
+        alt="Quality you can trust"
+        className="qualityImage"
+      />
       <StyledOuterContainer>
         <StyledQualityContainer>
           <QualityContent>
