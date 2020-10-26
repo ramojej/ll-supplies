@@ -3,7 +3,6 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { OuterContainer, Container } from "../components/styles/Styles"
-import CalcuForm from '../components/Contact/CalcuForm'
 import tw, { styled } from "twin.macro"
 
 const PrivacyPolicy = styled.div`
@@ -55,7 +54,6 @@ const page = ({
             <h1 dangerouslySetInnerHTML={{ __html: title }} />
             <div dangerouslySetInnerHTML={{ __html: content }} />
           </PrivacyPolicy>
-          <CalcuForm />
         </Container>
       </OuterContainer>
     </Layout>
