@@ -10,8 +10,9 @@ import "slick-carousel/slick/slick-theme.css"
 
 const StyledOuterContainer = styled(OuterContainer)`
   overflow: hidden;
-  @media ${props => props.theme.screens.lg} {
-    ${tw`py-16`}
+  @media ${props => props.theme.screens.xl} {
+    ${tw`py-24`};
+    margin-top: 100px;
   }
 `
 
