@@ -21,6 +21,11 @@ const StyledBackgroundImage = styled.div`
     height: 100%;
     position: absolute !important;
     margin-top: 0;
+    top: 0;
+
+    .gatsby-image {
+      object-fit: cover;
+    }
   }
 
   h1 {
