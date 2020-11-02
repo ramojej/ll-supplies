@@ -7,7 +7,7 @@ import Quality from "../components/Home/Quality/Quality"
 import Portfolio from "../components/Home/Portfolio/Portfolio"
 import Accreditations from "../components/Home/Accred/Accreditations"
 import Services from "../components/Home/Services/Services"
-import Testimonials from "../components/Home/Testimonials/Testimonials"
+//import Testimonials from "../components/Home/Testimonials/Testimonials"
 import Layout from "../components/layout"
 
 const HomePage = ({ data: { wpPage } }) => {
@@ -28,7 +28,7 @@ const HomePage = ({ data: { wpPage } }) => {
       <Portfolio />
       <Accreditations blocks={wpPage.blocks} />
       <Services blocks={wpPage.blocks} />
-      <Testimonials blocks={wpPage.blocks} />
+      {/* <Testimonials blocks={wpPage.blocks} /> */}
     </Layout>
   )
 }
