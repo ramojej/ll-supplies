@@ -14,6 +14,7 @@ const Abs = styled.div`
   }
   h3 {
     color: #dadada;
+    display: none;
   }
 `
 

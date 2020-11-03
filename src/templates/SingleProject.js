@@ -34,7 +34,7 @@ const ContentDetailsContainer = styled.div`
 `
 
 const ContentContainer = styled.div`
-  ${tw`order-2`};
+  ${tw`order-2 hidden`};
   @media ${props => props.theme.screens.lg} {
     ${tw`max-w-3xl order-1 mr-auto`}
   }

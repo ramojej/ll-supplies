@@ -37,7 +37,7 @@ const H3 = styled.h3`
 `
 
 const Subtitle = styled.h4`
-  ${tw`text-sm`};
+  ${tw`text-sm hidden`};
   color: rgba(255, 255, 255, 0.8);
 `
 
