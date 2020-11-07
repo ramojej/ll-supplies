@@ -57,6 +57,7 @@ const Portfolio = () => {
     slidesToShow: 3,
     slidesToScroll: 1,
     draggable: true,
+    autoplay: true,
     responsive: [
       {
         breakpoint: 480,
