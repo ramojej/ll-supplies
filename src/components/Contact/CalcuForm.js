@@ -108,6 +108,7 @@ const CalcuForm = () => {
     case "marble":
       thickness = [20]
     default:
+      thickness = [6, 8, 10, 12]
       break
   }
 

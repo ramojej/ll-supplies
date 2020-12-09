@@ -6,22 +6,22 @@ const query = `
       nodes {
         uri
         template {
-          ... on WpHomeTemplateTemplate {
+          ... on WpHomeTemplate {
             templateName
           }
-          ... on WpAboutUsTemplateTemplate {
+          ... on WpAboutUsTemplate{
             templateName
           }
-          ... on WpServicesTemplateTemplate {
+          ... on WpServicesTemplate {
             templateName
           }
-          ... on WpProductsTemplateTemplate {
+          ... on WpProductsTemplate {
             templateName
           }
-          ... on WpContactTemplateTemplate {
+          ... on WpContactTemplate {
             templateName
           }
-          ... on WpProjectTemplateTemplate {
+          ... on WpProjectTemplate {
             templateName
           }
         }
