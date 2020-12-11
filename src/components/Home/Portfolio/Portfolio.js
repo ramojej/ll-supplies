@@ -92,7 +92,10 @@ const Portfolio = () => {
 
 export const query = graphql`
   query HomePortfolio {
-    allWpProject(limit: 4) {
+    allWpProject(
+      filter: { projectsCustomFields: { featured: { eq: true } } }
+      limit: 4
+    ) {
       nodes {
         title
         featuredImage {
