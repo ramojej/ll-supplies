@@ -107,8 +107,9 @@ const CalcuForm = () => {
       break
     case "marble":
       thickness = [20]
+      break
     default:
-      thickness = [20]
+      thickness = []
       break
   }
 
