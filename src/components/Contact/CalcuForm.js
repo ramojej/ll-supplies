@@ -90,7 +90,7 @@ const CalcuForm = () => {
     weight = 0
   }
 
-  //console.log(thicknessValue)
+  //console.log(thickness)
 
   switch (material) {
     case "glazed":
@@ -108,7 +108,7 @@ const CalcuForm = () => {
     case "marble":
       thickness = [20]
     default:
-      thickness = [6, 8, 10, 12]
+      thickness = [20]
       break
   }
 
